@@ -11,12 +11,12 @@ transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 train_set = torchvision.datasets.CIFAR10(root="./data", train=True,
-                                         download=False, transform=transform)
+                                         download=True, transform=transform)
 train_loader = torch.utils.data.DataLoader(train_set, batch_size=4,
                                            shuffle=True, num_workers=2)
 
 test_set = torchvision.datasets.CIFAR10(root="./data", train=False,
-                                        download=False, transform=transform)
+                                        download=True, transform=transform)
 test_loader = torch.utils.data.DataLoader(test_set, batch_size=4,
                                           shuffle=False, num_workers=2)
 
