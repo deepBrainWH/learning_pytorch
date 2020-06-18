@@ -8,7 +8,7 @@ actions = ['left', 'right']
 epsilon = 0.9  # 贪心策略，90%概率选择最优动作，10%选择随机动作
 alpha = 0.1  # learning rate
 LAMBDA = 0.9  # 对未奖励的衰减值
-MAX_EPISODES = 13  # 最大训练次数
+MAX_EPISODES = 23  # 最大训练次数
 FRESH_TIME = 0.3  # 走一步花的时间，为了更清楚的看到走的步骤
 
 def build_q_table(n_states, n_actions):
@@ -45,11 +45,11 @@ def update_environment(s, episode, step_counter):
 
 def get_env_feed_back(s, a):
     if a == 'right':
-        if s == n_states - 2:
+        s_ = s+1
+        if s_ == n_states - 1:
             s_ = 'terminal'
             r = 1
         else:
-            s_ = s + 1
             r = 0
     else:
         r = 0
